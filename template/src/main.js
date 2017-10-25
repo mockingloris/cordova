@@ -4,6 +4,8 @@
 {{/if_eq}}
 import Vue from 'vue'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 import Vuetify from 'vuetify'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+import './stylus/main.styl'
+
 import App from './App'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#router}}
 import router from './router'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
