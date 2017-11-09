@@ -98,19 +98,20 @@
 
 <script>
   export default {
-    data () {
+    data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
       return {
         clipped: false,
         drawer: true,
         fixed: false,
-        items: [
-          { icon: 'bubble_chart', title: 'Inspire' }
-        ],
+        items: [{
+          icon: 'bubble_chart',
+          title: 'Inspire'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+        }],
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
-      }
-    }
-  }
+        title: 'Vuetify.js'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+      }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+  }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
