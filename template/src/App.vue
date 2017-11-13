@@ -1,11 +1,10 @@
 <template>
   <v-app light>
     <v-navigation-drawer
-      persistent
+      fixed
       :mini-variant="miniVariant"
       :clipped="clipped"
       v-model="drawer"
-      enable-resize-watcher
       app
     >
       <v-list>
@@ -13,6 +12,7 @@
           value="true"
           v-for="(item, i) in items"
           :key="i"
+          exact
         >
           <v-list-tile-action>
             <v-icon light v-html="item.icon"></v-icon>
@@ -56,30 +56,28 @@
         <v-icon>menu</v-icon>
       </v-btn>
     </v-toolbar>
-    <main>
-      <v-content>
-        <v-container fluid>
-          <v-slide-y-transition mode="out-in">
-            <v-layout column align-center>
-              <img src="/static/img/v.png" alt="Vuetify.js" class="mb-5">
-              <blockquote>
-                &#8220;First, solve the problem. Then, write the code.&#8221;
-                <footer>
-                  <small>
-                    <em>&mdash;John Johnson</em>
-                  </small>
-                </footer>
-              </blockquote>
-            </v-layout>
-          </v-slide-y-transition>
-        </v-container>
-      </v-content>
-    </main>
+    <v-content>
+      <v-container fluid>
+        <v-slide-y-transition mode="out-in">
+          <v-layout column align-center>
+            <img src="/static/img/v.png" alt="Vuetify.js" class="mb-5">
+            <blockquote>
+              &#8220;First, solve the problem. Then, write the code.&#8221;
+              <footer>
+                <small>
+                  <em>&mdash;John Johnson</em>
+                </small>
+              </footer>
+            </blockquote>
+          </v-layout>
+        </v-slide-y-transition>
+      </v-container>
+    </v-content>
     <v-navigation-drawer
       temporary
       :right="right"
       v-model="rightDrawer"
-      app
+      fixed
     >
       <v-list>
         <v-list-tile @click="right = !right">
