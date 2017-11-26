@@ -90,9 +90,6 @@
 
   {{/unless}}
   export default {
-{{#unless router}}    components: {
-      Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
-    },{{/unless}}
     data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
       return {
         clipped: false,
@@ -107,6 +104,9 @@
         rightDrawer: false,
         title: 'Vuetify.js'{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
       }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
-    }{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }{{#unless router}},
+    components: {
+      Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    }{{/unless}}{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
   }{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 </script>
