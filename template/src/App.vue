@@ -57,21 +57,11 @@
       </v-btn>
     </v-toolbar>
     <v-content>
-      <v-container fluid>
-        <v-slide-y-transition mode="out-in">
-          <v-layout column align-center>
-            <img src="/static/img/v.png" alt="Vuetify.js" class="mb-5">
-            <blockquote>
-              &#8220;First, solve the problem. Then, write the code.&#8221;
-              <footer>
-                <small>
-                  <em>&mdash;John Johnson</em>
-                </small>
-              </footer>
-            </blockquote>
-          </v-layout>
-        </v-slide-y-transition>
-      </v-container>
+      {{#router}}
+      <router-view></router-view>
+      {{else}}
+      <hello></hello>
+      {{/router}}
     </v-content>
     <v-navigation-drawer
       temporary
@@ -95,7 +85,14 @@
 </template>
 
 <script>
+  {{#unless router}}
+  import Hello from '@/components/Hello'{{#if_eq lintConfig "airbnb"}};{{/if_eq}}
+
+  {{/unless}}
   export default {
+{{#unless router}}    components: {
+      Hello{{#if_eq lintConfig "airbnb"}},{{/if_eq}}
+    },{{/unless}}
     data{{#unless_eq lintConfig "airbnb"}} {{/unless_eq}}() {
       return {
         clipped: false,
