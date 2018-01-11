@@ -14,6 +14,11 @@ module.exports = {
       "required": true,
       "message": "Project name"
     },
+    "reverseDomain": {
+      "type": "string",
+      "required": true,
+      "message": "Project reverse domain name (e.g. io.cordova.hellocordova)"
+    },
     "short_name": {
       "type": "string",
       "required": false,
