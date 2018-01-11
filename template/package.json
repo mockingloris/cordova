@@ -11,7 +11,11 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run"{{/unit}}{{#e2e}},
     "e2e": "node test/e2e/runner.js"{{/e2e}}{{#if_or unit e2e}},
     "test": "{{#unit}}npm run unit{{/unit}}{{#unit}}{{#e2e}} && {{/e2e}}{{/unit}}{{#e2e}}npm run e2e{{/e2e}}"{{/if_or}}{{#lint}},
-    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}}
+    "lint": "eslint --ext .js,.vue src{{#unit}} test/unit/specs{{/unit}}{{#e2e}} test/e2e/specs{{/e2e}}"{{/lint}},
+    "cordova-build": "npm run build && cordova build",
+    "cordova-browser": "npm run build && cordova run browser",
+    "ios": "npm run build && cordova run ios",
+    "android": "npm run build && cordova run android --device"
   },
   "dependencies": {
     "vue": "^2.3.3",
@@ -114,5 +118,34 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-taptic-engine": {},
+      "cordova-plugin-add-swift-support": {},
+      "cordova-plugin-x-socialsharing": {},
+      "cordova-plugin-contacts": {
+        "CONTACTS_USAGE_DESCRIPTION": "Fluss needs to access your contacts to send invitations"
+      },
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-firebase": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-dialogs": {},
+      "cordova-plugin-sim": {},
+      "skwas-cordova-plugin-datetimepicker": {},
+      "cordova-plugin-ble-central": {
+        "BLUETOOTH_USAGE_DESCRIPTION": "Fluss needs bluetooth to connect to devices"
+      },
+      "cordova-custom-config": {},
+      "cordova-open-native-settings": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-headercolor": {},
+      "cordova-plugin-compat": {}
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
 }
