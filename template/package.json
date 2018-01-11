@@ -121,31 +121,8 @@
   ],
   "cordova": {
     "plugins": {
-      "cordova-plugin-whitelist": {},
-      "cordova-plugin-taptic-engine": {},
-      "cordova-plugin-add-swift-support": {},
-      "cordova-plugin-x-socialsharing": {},
-      "cordova-plugin-contacts": {
-        "CONTACTS_USAGE_DESCRIPTION": "Fluss needs to access your contacts to send invitations"
-      },
-      "cordova-plugin-splashscreen": {},
-      "cordova-plugin-firebase": {},
-      "cordova-plugin-device": {},
-      "cordova-plugin-dialogs": {},
-      "cordova-plugin-sim": {},
-      "skwas-cordova-plugin-datetimepicker": {},
-      "cordova-plugin-ble-central": {
-        "BLUETOOTH_USAGE_DESCRIPTION": "Fluss needs bluetooth to connect to devices"
-      },
-      "cordova-custom-config": {},
-      "cordova-open-native-settings": {},
-      "cordova-plugin-statusbar": {},
-      "cordova-plugin-headercolor": {},
-      "cordova-plugin-compat": {}
     },
     "platforms": [
-      "android",
-      "ios"
     ]
   }
 }
